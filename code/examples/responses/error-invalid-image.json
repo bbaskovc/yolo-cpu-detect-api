@@ -1,0 +1,8 @@
+{
+  "error": {
+    "message": "Exactly one Base64 image is required.",
+    "type": "invalid_request_error",
+    "param": "input",
+    "code": "invalid_image_input"
+  }
+}

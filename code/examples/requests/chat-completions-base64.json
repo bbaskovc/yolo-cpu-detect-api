@@ -1,0 +1,17 @@
+{
+  "model": "yolo-cpu-detect-v1",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "data:image/jpeg;base64,<BASE64_IMAGE>"
+          }
+        }
+      ]
+    }
+  ],
+  "stream": false
+}

@@ -1,0 +1,62 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "yolo-cpu-detect-api"
+version = "0.0.0"
+description = "CPU-only, synchronous, single-image object detection through a constrained OpenAI-compatible API."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  { name = "Project owner" }
+]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "mypy>=1.15,<2",
+  "pytest>=8.3,<9",
+  "pytest-cov>=6,<7",
+  "ruff>=0.11,<1",
+]
+
+[project.urls]
+Documentation = "https://example.invalid/yolo-cpu-detect-api"
+Repository = "https://example.invalid/yolo-cpu-detect-api"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/yolo_cpu_detect_api"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["benchmark-results", "artifacts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = []
+
+[tool.ruff.lint.isort]
+known-first-party = ["yolo_cpu_detect_api"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unused_configs = true
+files = ["src", "tests", "scripts"]
+exclude = ["^benchmark-results/", "^artifacts/"]

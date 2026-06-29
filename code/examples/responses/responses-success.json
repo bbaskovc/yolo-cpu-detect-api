@@ -1,0 +1,24 @@
+{
+  "id": "resp_det_example",
+  "object": "response",
+  "created_at": 1782720000,
+  "status": "completed",
+  "model": "yolo-cpu-detect-v1",
+  "output": [
+    {
+      "id": "msg_det_example",
+      "type": "message",
+      "status": "completed",
+      "role": "assistant",
+      "content": [
+        {
+          "type": "output_text",
+          "text": "{\"schema_version\":\"1.0\",\"model\":\"yolo-cpu-detect-v1\",\"image\":{\"width\":1920,\"height\":1080},\"detections\":[{\"class_id\":0,\"class_name\":\"person\",\"confidence\":0.9421,\"bbox_xyxy\":[412,96,620,704]}]}",
+          "annotations": []
+        }
+      ]
+    }
+  ],
+  "store": false,
+  "usage": null
+}
