@@ -1,5 +1,48 @@
 # Test and Validation Strategy
 
+## Development baseline
+
+This milestone establishes the Python development environment only. It does not provide a runnable API or inference service yet.
+
+Supported baseline Python version: `3.11`.
+
+Recommended local setup:
+
+```bash
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -e ".[dev]"
+```
+
+Validation commands:
+
+```bash
+python -m pytest
+ruff check .
+ruff format --check .
+mypy src
+PYTHONPYCACHEPREFIX=/tmp/yolo-cpu-detect-api-pycache python -m compileall -q src
+python3 scripts/verify_initial_repository.py
+git diff --check
+```
+
+Full local validation suite:
+
+```bash
+make check
+```
+
+Developer command aliases:
+
+```bash
+make test
+make lint
+make format-check
+make type-check
+make check
+```
+
 ## Principle
 
 A claim is only as strong as the evidence attached to it. Green CI is not sufficient if it does not exercise the changed risk.

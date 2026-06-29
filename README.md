@@ -34,6 +34,49 @@ See [`docs/01-product-requirements.md`](docs/01-product-requirements.md) and [`d
 | [`docs/06-security.md`](docs/06-security.md) | Security and privacy requirements |
 | [`docs/10-work-plan.md`](docs/10-work-plan.md) | Ordered PR-sized implementation sequence |
 
+## Development environment
+
+This milestone establishes the Python tooling baseline only. It does not yet provide a runnable API or inference service.
+
+Supported baseline Python version: `3.11`.
+
+Create a local virtual environment and install the development dependencies:
+
+```bash
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -e ".[dev]"
+```
+
+Run the individual validation commands from the repository root:
+
+```bash
+python -m pytest
+ruff check .
+ruff format --check .
+mypy src
+PYTHONPYCACHEPREFIX=/tmp/yolo-cpu-detect-api-pycache python -m compileall -q src
+python3 scripts/verify_initial_repository.py
+git diff --check
+```
+
+Run the full local validation suite:
+
+```bash
+make check
+```
+
+Developer command aliases:
+
+```bash
+make test
+make lint
+make format-check
+make type-check
+make check
+```
+
 ## Repository layout
 
 ```text
