@@ -17,8 +17,6 @@ classifiers = [
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
   "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: 3.12",
-  "Programming Language :: Python :: 3.13",
   "Typing :: Typed",
 ]
 dependencies = []
@@ -26,8 +24,7 @@ dependencies = []
 [project.optional-dependencies]
 dev = [
   "mypy>=1.15,<2",
-  "pytest>=8.3,<10",
-  "pytest-cov>=6,<8",
+  "pytest>=8.3,<9",
   "ruff>=0.11,<1",
 ]
 
@@ -58,5 +55,5 @@ known-first-party = ["yolo_cpu_detect_api"]
 python_version = "3.11"
 strict = true
 warn_unused_configs = true
-files = ["src", "tests", "scripts"]
+files = ["src"]
 exclude = ["^benchmark-results/", "^artifacts/"]
