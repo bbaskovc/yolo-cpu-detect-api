@@ -120,6 +120,16 @@ The execution agent receives one PR-sized work order at a time. A work order mus
 
 Before editing, inspect the current repository state and this constitution. Do not modify unrelated files. Do not refactor adjacent code unless explicitly in scope.
 
+## Pull-request-only governance
+
+- All repository changes must be made on a dedicated non-default branch.
+- Direct commits and pushes to the default branch are forbidden.
+- Every repository-changing task must result in a pull request targeting the default branch.
+- Agents must not merge, squash-merge, rebase-merge, approve, or close their own pull requests.
+- The human repository owner is the merge authority.
+- A pull request must include scope, validation evidence, known limitations, and explicit non-goals.
+- Force-pushes, history rewrites, rebases of the default branch, and destructive Git operations require explicit human approval.
+
 ## 9. Execution environment
 
 Execution may happen with broad permissions only inside a disposable, rebuildable VM, container, or devcontainer that contains no production secrets, irreplaceable state, personal data, or uncommitted project truth.
